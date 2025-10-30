@@ -6,6 +6,11 @@ export default async function Home() {
 
     const data = await getData();
     const books = Array.isArray(data.books)?data.books.flat(): []; //convert 2D array to 1D array
+
+    if (books.length === 0) {
+        return <h1>Error fetching books!!</h1>;
+    }
+
     return (
       <>
           {
